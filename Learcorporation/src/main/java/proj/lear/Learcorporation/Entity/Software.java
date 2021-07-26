@@ -1,6 +1,7 @@
 package proj.lear.Learcorporation.Entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 @Entity
 public class Software implements Serializable{
 	
@@ -28,10 +38,26 @@ public class Software implements Serializable{
 	private String soft_version;
 	private String soft_Desc;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name="id_software") 
-	private List<Licence> Licences;
+	@OneToMany(mappedBy = "Software", cascade = CascadeType.REMOVE)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Licence> Licences;
 	
+	
+	
+	@ManyToMany
+    @JoinTable( name = "Software_clients",
+                joinColumns = @JoinColumn( name = "id_software" ),
+                inverseJoinColumns = @JoinColumn( name = "id_compte"))
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Compte_Utilisateur> clients = new ArrayList<>();
+	
+    @OneToMany(mappedBy = "software", cascade = CascadeType.REMOVE)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Approv_Soft> aprsoftwares;
+    
 	public Software() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -9,7 +9,7 @@ import proj.lear.Learcorporation.Entity.Software;
 public interface IAprSofDAO {
 
 	
-	public List<Approv_Soft> ListeSoftwaresApprovedUser(Long id);
-	public void Approv_Software_Use(Long id_software);
+	public List<Software> ListeSoftwaresApprovedUser(Long id_user);
+	public void Approv_Software_Use(Long id_dem_software);
 
 }

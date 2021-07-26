@@ -19,7 +19,7 @@ public interface ICompteDAO {
 	
 	public  List<Compte_Utilisateur> ListeCompteUtilisateurs();
 	public  List<Compte_Gérants> ListeCompteGerants();
-	public List<Licence> ListeLicencesReqCompte(Long id_Licence,Long id_compte);
-	public List<Software> ListeSoftwaresReqCompte(Long id_Software, Long id_compte);
+	public List<Licence> ListeLicencesReqCompte(Long id_compte);
+	public List<Software> ListeSoftwaresReqCompte(Long id_compte);
 
 }

@@ -1,7 +1,10 @@
 package proj.lear.Learcorporation.Entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,9 +12,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 @Entity
 public class Licence implements Serializable {
 	
@@ -27,6 +38,8 @@ public class Licence implements Serializable {
 	private long Lic_cost;
 	private String Currency;
 	private String Lic_BO_alloc;
+	private String Lic_vend_cont_ref;
+	
 	
 	
 	@ManyToOne (fetch = FetchType.LAZY) 
@@ -34,10 +47,32 @@ public class Licence implements Serializable {
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Software Software;
 	
-	private String Lic_vend_cont_ref;
+	
+	
+	@ManyToMany
+    @JoinTable( name = "Licences_clients",
+                joinColumns = @JoinColumn( name = "id_licence" ),
+                inverseJoinColumns = @JoinColumn( name = "id_compte"))
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Compte_Utilisateur> clients = new ArrayList<>();
+	
+    
+    
+    @OneToMany(mappedBy = "licence", cascade = CascadeType.REMOVE)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Aprov_Lic> aprlicences;
+	
+    
+    
+	public Licence() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Licence(String lic_ref, long lic_serial, String lic_type, long lic_cost, String currency,
-			String lic_BO_alloc, Software software, String lic_vend_cont_ref) {
+			String lic_BO_alloc, String lic_vend_cont_ref, Software software) {
 		super();
 		this.Lic_ref = lic_ref;
 		this.Lic_serial = lic_serial;
@@ -47,11 +82,6 @@ public class Licence implements Serializable {
 		this.Lic_BO_alloc = lic_BO_alloc;
 		this.Software = software;
 		this.Lic_vend_cont_ref = lic_vend_cont_ref;
-	}
-
-	public Licence() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public long getId_licence() {
