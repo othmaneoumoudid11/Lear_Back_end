@@ -2,6 +2,8 @@ package proj.lear.Learcorporation;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +11,10 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import proj.lear.Learcorporation.DAO.ILicenceDAO;
+import proj.lear.Learcorporation.DAO.ISoftwareDAO;
+import proj.lear.Learcorporation.Entity.Licence;
+import proj.lear.Learcorporation.Entity.Software;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -16,8 +22,14 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @SpringBootApplication
-public class LearcorporationApplication {
+public class LearcorporationApplication implements CommandLineRunner{
+	
+	@Autowired
+	private ILicenceDAO licencedao;
 
+	@Autowired
+	private ISoftwareDAO sotwaredao;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(LearcorporationApplication.class, args);
 	}
@@ -56,5 +68,18 @@ public class LearcorporationApplication {
 		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
 		return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+
+		//Software S = sotwaredao.AjouterSoftware(new Software("soft_ref", "soft_manif", "soft_suppl", "soft_familly", "soft_version","soft_Desc"));
+		//Licence L = licencedao.AjouterLicence(new Licence("cvghjhccvh", "0", "khghjkbhhxxxx", "0", "xxxyy",
+				//"cc", "cc", S));
+		
+	}
+	
+
+
 	
 }

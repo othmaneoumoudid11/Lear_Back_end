@@ -41,6 +41,9 @@ public class LicenceController {
     notes="vous devez entrez l'objet licence sous forme JSON sans id")
 	public ResponseEntity<Licence> AjouterLicence(@ApiParam(value = "Objet licence",required = true) @RequestBody Licence licence){
 		Licence L = liceneDao.AjouterLicence(licence);
+		System.out.println("hhh"+ licence.getCurrency() + licence.getLic_BO_alloc());
+
+		System.out.println("hhh1"+ L.getCurrency() + L.getLic_BO_alloc());
 		return new ResponseEntity<>(L,HttpStatus.CREATED);
 	}
 	

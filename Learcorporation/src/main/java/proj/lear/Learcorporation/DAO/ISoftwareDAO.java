@@ -13,5 +13,5 @@ public interface ISoftwareDAO {
 	public Software ModifierSoftware(Software S);
 	public List<Software> ListSoftwares();
 	public Software ChercherSoftware(Long id_software);
-	public void Request_Soft(Approv_Soft SD);
+	public Approv_Soft Request_Soft(Approv_Soft SD);
 }

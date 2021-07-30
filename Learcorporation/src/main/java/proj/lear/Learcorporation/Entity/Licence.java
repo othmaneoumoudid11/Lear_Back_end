@@ -33,12 +33,13 @@ public class Licence implements Serializable {
 	
 	private String Lic_ref;
 	
-	private long Lic_serial;
+	private String Lic_serial;
 	private String Lic_type;
-	private long Lic_cost;
+	private String Lic_cost;
 	private String Currency;
 	private String Lic_BO_alloc;
 	private String Lic_vend_cont_ref;
+	
 	
 	
 	
@@ -71,7 +72,7 @@ public class Licence implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Licence(String lic_ref, long lic_serial, String lic_type, long lic_cost, String currency,
+	public Licence(String lic_ref, String lic_serial, String lic_type, String lic_cost, String currency,
 			String lic_BO_alloc, String lic_vend_cont_ref, Software software) {
 		super();
 		this.Lic_ref = lic_ref;
@@ -100,11 +101,11 @@ public class Licence implements Serializable {
 		Lic_ref = lic_ref;
 	}
 
-	public long getLic_serial() {
+	public String getLic_serial() {
 		return Lic_serial;
 	}
 
-	public void setLic_serial(long lic_serial) {
+	public void setLic_serial(String lic_serial) {
 		Lic_serial = lic_serial;
 	}
 
@@ -116,11 +117,11 @@ public class Licence implements Serializable {
 		Lic_type = lic_type;
 	}
 
-	public long getLic_cost() {
+	public String getLic_cost() {
 		return Lic_cost;
 	}
 
-	public void setLic_cost(long lic_cost) {
+	public void setLic_cost(String lic_cost) {
 		Lic_cost = lic_cost;
 	}
 

@@ -33,7 +33,7 @@ public class Aprov_Lic implements Serializable{
 
 	@ManyToOne  (fetch = FetchType.LAZY)
 	@JoinColumn( name="id_compte" )
-	private Compte user;
+	private Compte_Utilisateur user;
 
 
 	public Aprov_Lic() {
@@ -42,7 +42,7 @@ public class Aprov_Lic implements Serializable{
 	}
 
 
-	public Aprov_Lic(Date date_Request, Date date_Approv, boolean acceptee, Licence licence, Compte user) {
+	public Aprov_Lic(Date date_Request, Date date_Approv, boolean acceptee, Licence licence, Compte_Utilisateur user) {
 		super();
 		this.date_Request = date_Request;
 		this.date_Approv = date_Approv;
@@ -92,12 +92,12 @@ public class Aprov_Lic implements Serializable{
 	}
 
 
-	public Compte getUser() {
+	public Compte_Utilisateur getUser() {
 		return user;
 	}
 
 
-	public void setUser(Compte user) {
+	public void setUser(Compte_Utilisateur user) {
 		this.user = user;
 	}
 

@@ -29,6 +29,18 @@ public class Compte_Utilisateur extends Compte implements Serializable {
 	@LazyCollection(LazyCollectionOption.FALSE)	
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Software> softwares;
+	
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Aprov_Lic> aprlicences;
+    
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Approv_Soft> aprsofts;
 
 	public Compte_Utilisateur() {
 		super();

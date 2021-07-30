@@ -51,10 +51,13 @@ public class SoftwareDAOimpl implements ISoftwareDAO {
 	}
 
 	@Override
-	public void Request_Soft(Approv_Soft SD) {
+	public Approv_Soft Request_Soft(Approv_Soft SD) {
 		// TODO Auto-generated method stub
-		  softdemrepo.save(SD);
+		  return softdemrepo.save(SD);
+
 	}
+
+	
 
 	
 	

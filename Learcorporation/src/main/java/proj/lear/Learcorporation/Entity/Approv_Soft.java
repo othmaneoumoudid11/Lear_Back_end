@@ -34,7 +34,7 @@ public class Approv_Soft implements Serializable{
 
 	@ManyToOne  (fetch = FetchType.LAZY)
 	@JoinColumn( name="id_compte" )
-	private Compte user;
+	private Compte_Utilisateur user;
 
 
 	public Approv_Soft() {
@@ -44,7 +44,7 @@ public class Approv_Soft implements Serializable{
 
 
 	public Approv_Soft(Date date_Request, Date date_Approv, boolean acceptee, String status, Software software,
-			Compte user) {
+			Compte_Utilisateur user) {
 		super();
 		this.date_Request = date_Request;
 		this.date_Approv = date_Approv;
@@ -105,12 +105,12 @@ public class Approv_Soft implements Serializable{
 	}
 
 
-	public Compte getUser() {
+	public Compte_Utilisateur getUser() {
 		return user;
 	}
 
 
-	public void setUser(Compte user) {
+	public void setUser(Compte_Utilisateur user) {
 		this.user = user;
 	}
 

@@ -28,7 +28,11 @@ public class LicenceDAOImpl implements ILicenceDAO{
 	@Override
 	public Licence AjouterLicence(Licence L) {
 		// TODO Auto-generated method stub
-		return licencerepo.save(L);
+		Licence Li = licencerepo.save(L);
+		 System.out.println("xxxx"+ L.getCurrency() + L.getLic_BO_alloc());
+		 System.out.println("xxxxi"+ Li.getCurrency() + Li.getLic_BO_alloc());
+
+		 return Li;
 	}
 
 	@Override
