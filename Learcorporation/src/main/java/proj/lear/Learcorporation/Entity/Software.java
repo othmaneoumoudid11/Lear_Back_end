@@ -37,6 +37,7 @@ public class Software implements Serializable{
 	private String soft_familly;
 	private String soft_version;
 	private String soft_Desc;
+    private String ImageUrl;
 	
 	@OneToMany(mappedBy = "Software", cascade = CascadeType.REMOVE)
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -65,7 +66,7 @@ public class Software implements Serializable{
 
 
 	public Software(String soft_ref, String soft_manif, String soft_suppl, String soft_familly, String soft_version,
-			String soft_Desc) {
+			String soft_Desc, String ImageUrl) {
 		super();
 		this.soft_ref = soft_ref;
 		this.soft_manif = soft_manif;
@@ -73,6 +74,7 @@ public class Software implements Serializable{
 		this.soft_familly = soft_familly;
 		this.soft_version = soft_version;
 		this.soft_Desc = soft_Desc;
+		this.ImageUrl = ImageUrl;
 	}
 
 
@@ -108,6 +110,51 @@ public class Software implements Serializable{
 
 	public String getSoft_familly() {
 		return soft_familly;
+	}
+
+
+	public String getImageUrl() {
+		return ImageUrl;
+	}
+
+
+	public void setImageUrl(String imageUrl) {
+		ImageUrl = imageUrl;
+	}
+
+
+	public List<Licence> getLicences() {
+		return Licences;
+	}
+
+
+	public void setLicences(List<Licence> licences) {
+		Licences = licences;
+	}
+
+
+	public List<Compte_Utilisateur> getClients() {
+		return clients;
+	}
+
+
+	public void setClients(List<Compte_Utilisateur> clients) {
+		this.clients = clients;
+	}
+
+
+	public List<Approv_Soft> getAprsoftwares() {
+		return aprsoftwares;
+	}
+
+
+	public void setAprsoftwares(List<Approv_Soft> aprsoftwares) {
+		this.aprsoftwares = aprsoftwares;
+	}
+
+
+	public void setId_software(long id_software) {
+		this.id_software = id_software;
 	}
 
 

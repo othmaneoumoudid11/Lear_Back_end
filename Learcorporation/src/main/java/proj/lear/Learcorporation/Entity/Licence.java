@@ -39,7 +39,8 @@ public class Licence implements Serializable {
 	private String Currency;
 	private String Lic_BO_alloc;
 	private String Lic_vend_cont_ref;
-	
+    private String ImageUrl;
+
 	
 	
 	
@@ -73,7 +74,7 @@ public class Licence implements Serializable {
 	}
 	
 	public Licence(String lic_ref, String lic_serial, String lic_type, String lic_cost, String currency,
-			String lic_BO_alloc, String lic_vend_cont_ref, Software software) {
+			String lic_BO_alloc, String lic_vend_cont_ref, String ImageUrl, Software software) {
 		super();
 		this.Lic_ref = lic_ref;
 		this.Lic_serial = lic_serial;
@@ -83,6 +84,7 @@ public class Licence implements Serializable {
 		this.Lic_BO_alloc = lic_BO_alloc;
 		this.Software = software;
 		this.Lic_vend_cont_ref = lic_vend_cont_ref;
+		this.ImageUrl = ImageUrl;
 	}
 
 	public long getId_licence() {
@@ -157,6 +159,31 @@ public class Licence implements Serializable {
 		Lic_vend_cont_ref = lic_vend_cont_ref;
 	}
 
+	public String getImageUrl() {
+		return ImageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		ImageUrl = imageUrl;
+	}
+
+	public List<Compte_Utilisateur> getClients() {
+		return clients;
+	}
+
+	public void setClients(List<Compte_Utilisateur> clients) {
+		this.clients = clients;
+	}
+
+	public List<Aprov_Lic> getAprlicences() {
+		return aprlicences;
+	}
+
+	public void setAprlicences(List<Aprov_Lic> aprlicences) {
+		this.aprlicences = aprlicences;
+	}
+
+	
 	
 	
 

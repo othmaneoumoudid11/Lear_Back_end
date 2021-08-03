@@ -24,6 +24,9 @@ import javax.persistence.InheritanceType;
 		private String User_name;
 		private String email;
 		private String motpasse;
+        private String Num_telephone;	
+	    private String ImageUrl;
+
 		
 		
 		public Compte() {
