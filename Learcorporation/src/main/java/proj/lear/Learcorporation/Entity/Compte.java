@@ -26,20 +26,43 @@ import javax.persistence.InheritanceType;
 		private String motpasse;
         private String Num_telephone;	
 	    private String ImageUrl;
+	   
 
 		
 		
+		public String getNum_telephone() {
+			return Num_telephone;
+		}
+
+
+		public void setNum_telephone(String num_telephone) {
+			Num_telephone = num_telephone;
+		}
+
+
+		public String getImageUrl() {
+			return ImageUrl;
+		}
+
+
+		public void setImageUrl(String imageUrl) {
+			ImageUrl = imageUrl;
+		}
+
+
 		public Compte() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
 
-		public Compte(String user_name, String email, String motpasse) {
+		public Compte(String user_name, String email, String motpasse, String Num_telephone, String ImageUrl) {
 			super();
-			User_name = user_name;
+			this.User_name = user_name;
 			this.email = email;
 			this.motpasse = motpasse;
+			this.Num_telephone = Num_telephone;
+			this.ImageUrl = ImageUrl;
 		}
 
 
