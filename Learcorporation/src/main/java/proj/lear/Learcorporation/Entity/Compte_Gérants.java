@@ -15,8 +15,8 @@ public class Compte_Gérants extends Compte implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Compte_Gérants(String user_name, String email, String motpasse) {
-		super(user_name, email, motpasse);
+	public Compte_Gérants(String user_name, String email, String motpasse, String Num_telephone, String ImageUrl) {
+		super(user_name, email, motpasse, Num_telephone,ImageUrl);
 		// TODO Auto-generated constructor stub
 	}
 	

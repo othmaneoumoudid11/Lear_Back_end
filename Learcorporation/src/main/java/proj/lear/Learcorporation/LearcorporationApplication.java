@@ -73,7 +73,7 @@ public class LearcorporationApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 
-		Software S = sotwaredao.AjouterSoftware(new Software("soft_ref", "soft_manif", "soft_suppl", "soft_familly", "soft_version","soft_Desc","hgcgh"));
+		//Software S = sotwaredao.AjouterSoftware(new Software("soft_ref", "soft_manif", "soft_suppl", "soft_familly", "soft_version","soft_Desc","hgcgh"));
 		//Licence L = licencedao.AjouterLicence(new Licence("cvghjhccvh", "0", "khghjkbhhxxxx", "0", "xxxyy",
 				//"cc", "cc", S));
 		

@@ -39,10 +39,10 @@ public class Software implements Serializable{
 	private String soft_Desc;
     private String ImageUrl;
 	
-	@OneToMany(mappedBy = "Software", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "software", cascade = CascadeType.REMOVE)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private List<Licence> Licences;
+    private List<Licence> licences;
 	
 	
 	
@@ -58,7 +58,7 @@ public class Software implements Serializable{
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Approv_Soft> aprsoftwares;
-    
+   
 	public Software() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -124,12 +124,12 @@ public class Software implements Serializable{
 
 
 	public List<Licence> getLicences() {
-		return Licences;
+		return licences;
 	}
 
 
 	public void setLicences(List<Licence> licences) {
-		Licences = licences;
+		this.licences = licences;
 	}
 
 
@@ -186,9 +186,6 @@ public class Software implements Serializable{
 	public long getId_software() {
 		return id_software;
 	}
-	
-	
-	
 	
 	
 	

@@ -28,8 +28,6 @@ import javax.persistence.InheritanceType;
 	    private String ImageUrl;
 	   
 
-		
-		
 		public String getNum_telephone() {
 			return Num_telephone;
 		}

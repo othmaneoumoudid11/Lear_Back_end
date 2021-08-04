@@ -42,13 +42,11 @@ public class Licence implements Serializable {
     private String ImageUrl;
 
 	
-	
-	
-	@ManyToOne (fetch = FetchType.LAZY) 
+
+	@ManyToOne  (fetch = FetchType.EAGER)
 	@JoinColumn( name="id_software" )
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	private Software Software;
-	
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	private Software software;
 	
 	
 	@ManyToMany
@@ -82,7 +80,7 @@ public class Licence implements Serializable {
 		this.Lic_cost = lic_cost;
 		this.Currency = currency;
 		this.Lic_BO_alloc = lic_BO_alloc;
-		this.Software = software;
+		this.software = software;
 		this.Lic_vend_cont_ref = lic_vend_cont_ref;
 		this.ImageUrl = ImageUrl;
 	}
@@ -144,11 +142,11 @@ public class Licence implements Serializable {
 	}
 
 	public Software getSoftware() {
-		return Software;
+		return software;
 	}
 
 	public void setSoftware(Software software) {
-		Software = software;
+		software = software;
 	}
 
 	public String getLic_vend_cont_ref() {

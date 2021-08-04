@@ -47,8 +47,8 @@ public class Compte_Utilisateur extends Compte implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Compte_Utilisateur(String user_name, String email, String motpasse) {
-		super(user_name, email, motpasse);
+	public Compte_Utilisateur(String user_name, String email, String motpasse, String Num_telephone, String ImageUrl) {
+		super(user_name, email, motpasse,Num_telephone,ImageUrl);
 		
 		// TODO Auto-generated constructor stub
 	}
